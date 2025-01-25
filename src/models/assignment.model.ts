@@ -23,6 +23,6 @@ const AssignmentSchema: Schema = new Schema<IAssignment>({
     timestamps: true,
 });
 
-const AssignmentModel = mongoose.model<IAssignment>('Assignment', AssignmentSchema);
+const Assignment = mongoose.model<IAssignment>('Assignment', AssignmentSchema);
 
-export default AssignmentModel;
+export default Assignment;

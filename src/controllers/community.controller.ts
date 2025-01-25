@@ -8,7 +8,7 @@ import ResponseHelper from "../utils/response";
 /**
  * @author Okpe Onoja <okpeonoja18@gmail.com>
  * @description Get all communities
- * @route `/api/community/all-communities`
+ * @route `/api/v1/community/all-communities`
  * @access Private
  * @type GET
  **/
@@ -37,7 +37,7 @@ export const getCommunities = catchAsync(async(req: Request, res: Response, next
 /**
  * @author Okpe Onoja <okpeonoja18@gmail.com>
  * @description Get one community
- * @route `/api/community/one-community/:id`
+ * @route `/api/v1/community/one-community/:id`
  * @access Private
  * @type GET
  **/

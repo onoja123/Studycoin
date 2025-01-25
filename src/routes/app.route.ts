@@ -2,7 +2,8 @@ import express from "express";
 import { Routes } from "../types/interfaces/app.inter";
 import AuthRoute from "./auth.route";
 import ProfileRoute from "./profile.route";
-import NotificationRoute from "./notification.route";
+import AssignmentRoute from "./assignment.route";
+import CommunityRoute from "./community.route";
 
 const AppRouter = express.Router();
 
@@ -16,9 +17,13 @@ const appRoutes: Routes = [
         router: ProfileRoute,
     },
     {
-        path: "/notification",
-        router: NotificationRoute,
+        path: "/assignment",
+        router: AssignmentRoute,
     },
+    {
+        path: "/community",
+        router: CommunityRoute,
+    }
 ];
 
 appRoutes.forEach((route) => {

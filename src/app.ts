@@ -1,7 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import AppRouter from "../src/routes/app.route";
+import AppRouter from "./routes/app.route";
 import globalErrorHandler from './controllers/error.controller';
 
 dotenv.config();
