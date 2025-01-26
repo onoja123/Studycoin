@@ -79,7 +79,7 @@ export const subAssignment = async (req: Request, res: Response, next: NextFunct
   
           const imageUrl = result.secure_url;
   
-          const assignment = await AssignmentService.subAssignment(req.user?.id, { ...req.body, image: imageUrl });
+          const assignment = await AssignmentService.subAssignment(req.user?.id, { ...req.body, url: imageUrl });
   
           if (!assignment) {
             return new AppError('User not found', ResponseHelper.RESOURCE_NOT_FOUND);
