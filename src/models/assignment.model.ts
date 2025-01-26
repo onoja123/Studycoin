@@ -1,5 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { IAssignment } from '../types/interfaces/assignment.inter';
+import { Status } from '../types/enums/assignment';
 
 const AssignmentSchema: Schema = new Schema<IAssignment>({
     _user: {
@@ -14,6 +15,11 @@ const AssignmentSchema: Schema = new Schema<IAssignment>({
     },
     url: {
       type: String,
+    },
+    status: {
+      type: String,
+		  enum: Object.values(Status),
+      default: Status.PENDING
     },
     createdAt: {
       type: Date,

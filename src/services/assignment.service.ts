@@ -15,19 +15,17 @@ export default class AssignmentService{
         const assignment = await Assignment.findOne({ _user: userId, _id: assignmentId }).populate('_user');
         return assignment;
     }
-
     static async subAssignment(
         userId: string, 
         payload: IAssignment
     ): Promise<IAssignment | null> {
-        const { title, description, url } = payload;
-        const assignment = await Assignment.findByIdAndUpdate(userId, {
-            title,
-            description,
-            url
-        }, 
-        { new: true }
-        ).select('+email');
+
+        const assignment = await Assignment.create({
+            ...payload,
+            _user: userId,
+        })
         return assignment;
     }
+
+
 }

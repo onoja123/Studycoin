@@ -1,4 +1,5 @@
 import mongoose, { Document, Schema } from "mongoose";
+import { Status } from "../enums/assignment";
 
 
 export interface IAssignment extends Document{
@@ -6,6 +7,7 @@ export interface IAssignment extends Document{
     title: string;
     description: string;
     url: string;
+    status: Status
     completed: boolean;
     createdAt: Date;
     updatedAt: Date;
