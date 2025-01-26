@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const DB_URL: string = process.env.DB_URL || 'g'
+const DB_URL: string = process.env.DB_URL || ''
 
 const connectToDatabase = async () =>{
     try {

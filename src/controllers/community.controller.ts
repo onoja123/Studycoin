@@ -62,3 +62,36 @@ export const getOneCommunity = catchAsync(async (req: Request, res: Response, ne
         return next(new AppError("An error occurred while trying to get a community. Please try again.", ResponseHelper.INTERNAL_SERVER_ERROR))
     }
 });
+
+
+/**
+ * @author Okpe Onoja <okpeonoja18@gmail.com>
+ * @description Create a community
+ * @route `/api/v1/community/create-community`
+ * @access Private
+ * @type POST
+ **/
+export const createCommunity = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    try {
+
+        const community = await CommunityService.createCommunity(
+            req.user?.id,
+            req.body
+        );
+
+        if (!community) {
+            return ResponseHelper.sendSuccessResponse(res, {
+            data: [],
+            statusCode: ResponseHelper.OK,
+            });
+        }
+
+        ResponseHelper.sendSuccessResponse(res,
+            {
+                data: community,
+                statusCode: ResponseHelper.OK,
+            });
+    } catch (error) {
+        return next(new AppError("An error occurred while trying to create a community. Please try again.", ResponseHelper.INTERNAL_SERVER_ERROR))
+    }
+});

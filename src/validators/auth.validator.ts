@@ -8,7 +8,7 @@ export default class AuthValidator {
             fullname: Joi.string().required(),
             email: Joi.string().email().required(),
             password: Joi.string().required(),
-            // UserType:Joi.string().required
+            userType: Joi.string().valid('Lecturer', 'Student').required(),
         });
         return schema.validate(data);
     }

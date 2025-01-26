@@ -116,6 +116,8 @@ export const signUp = catchAsync(async (req: Request, res: Response, next: NextF
     if (newUser) {
       await User.deleteOne({ _id: newUser._id });
     }
+
+    console.log("Err", err)
     return next(new AppError("Couldn't create the user. Please try again.", ResponseHelper.INTERNAL_SERVER_ERROR));
   }
 });
